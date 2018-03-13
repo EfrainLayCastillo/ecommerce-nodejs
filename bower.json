@@ -1,0 +1,19 @@
+{
+  "name": "ecommerce",
+  "description": "",
+  "main": "",
+  "authors": [
+    "efrainlaycastillo <efrainlaycastillo@hotmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ]
+}
