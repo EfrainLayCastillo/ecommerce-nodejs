@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 var index = require('./routes/index');
-var users = require('./routes/users');
+var user = require('./routes/user');
 //view engine
 var hbs = require('express-handlebars');
 //session user
@@ -14,6 +14,7 @@ var session = require('express-session');
 //passport
 var passport = require('passport');
 var flash = require('connect-flash');
+var validator = require('express-validator');
 //db
 var mongoose = require('mongoose');
 
@@ -39,6 +40,7 @@ app.set('view engine', 'hbs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(validator());
 app.use(cookieParser());
 //session init
 app.use(session({
@@ -60,8 +62,13 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function(req, res, next){
+  res.locals.login = req.isAuthenticated();
+  next();
+});
+
+app.use('/user', user);
 app.use('/', index);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

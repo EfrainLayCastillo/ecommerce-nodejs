@@ -1,6 +1,14 @@
 <div class="container">
-    <div class="row justify-content-md-center">
-        <div class="col-md-5">
+    <div class="row align-items-center justify-content-md-center">
+        <div class="col-md-5 p-3">
+            <h3>Sign Up</h3>
+            {{#if hasErrors}}
+                {{#each messages}}
+                <div class="alert alert-danger" role="alert">
+                    <span>{{this}}</span>
+                </div>
+                {{/each}}
+            {{/if}}
             <form action="/user/signup" method="POST">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
@@ -11,7 +19,7 @@
                     <input type="password" id="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
             </form>
         </div>
     </div>
