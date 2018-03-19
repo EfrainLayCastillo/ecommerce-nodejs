@@ -11,12 +11,16 @@ var user = require('./routes/user');
 var hbs = require('express-handlebars');
 //session user
 var session = require('express-session');
+//session conect
+var MongoStore = require('connect-mongo')(session);
 //passport
 var passport = require('passport');
 var flash = require('connect-flash');
 var validator = require('express-validator');
+
 //db
 var mongoose = require('mongoose');
+
 
 var app = express();
 
@@ -46,7 +50,11 @@ app.use(cookieParser());
 app.use(session({
   secret: 'mysupersecret',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  store: new MongoStore({mongooseConnection: mongoose.connection}),
+  cookie: {
+    maxAge: 180 * 60 * 1000
+  }
 }));
 //flash init
 app.use(flash());
@@ -61,9 +69,10 @@ app.use(sassMiddleware({
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
-
+/* global variable to use in routes or from the views*/
 app.use(function(req, res, next){
   res.locals.login = req.isAuthenticated();
+  res.locals.session = req.session;
   next();
 });
 

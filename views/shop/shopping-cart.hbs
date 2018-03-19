@@ -1,0 +1,50 @@
+{{#if products}}
+<div class="row justify-content-md-center">
+    <div class="col-md-6">
+        <ul class="list-group">
+            {{#each products}}
+            <li class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">
+                        {{this.item.title}}
+                        <span class="btn btn-success">{{this.qty}}</span>
+                    </h5>
+                    <div>
+                        <span class="badge badge-primary badge-pill">${{this.price}}</span>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Action
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Reduce by 1</a>
+                            <a class="dropdown-item" href="#">reduce by all</a>
+                        </div>
+                    </div>
+                </div>                
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
+<div class="row justify-content-md-center">
+    <div class="col-md-6">
+        <h4>Total: ${{totalPrice}} </h4>
+    </div>
+</div>
+<div class="row justify-content-md-center">
+    <div class="col-md-6">
+        <a href="/checkout" class="btn btn-success" role="button">checkout</a>
+    </div>
+</div>
+{{else}}
+<div class="row justify-content-md-center">
+    <div class="col-md-6">
+        <h2>No items in cart</h2>
+    </div>
+</div>
+{{/if}}
+
+
+

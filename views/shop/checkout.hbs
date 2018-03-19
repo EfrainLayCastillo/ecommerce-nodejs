@@ -1,0 +1,49 @@
+<div class="row justify-content-md-center ">
+    <div class="col-md-5 p-5">
+        <h2>Checkout</h2>
+        <h4>Your total: ${{total}}</h4>
+
+        <!-- Used to display Element errors. -->
+        <div id="card-errors" role="alert"></div>
+
+        <form action="/checkout" method="POST" id="payment-form">
+            <div class="form-group">
+                <label for="card-element">Full Name</label>
+                <div id="card-element">
+
+                </div>
+                <!--<input type="text" class="form-control" id="card-name" aria-describedby="nameHelp" placeholder="Enter your full name">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+            </div>
+            <!--<div class="form-group">
+                <label for="name">Address</label>
+                <input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Card Holder Name</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="name">Credit Card Number</label>
+                <input type="text" class="form-control" id="card-number" aria-describedby="nameHelp" placeholder="Enter your full name">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="expmonth">Expiration Month</label>
+                    <input type="text" class="form-control" id="card-expiry-month">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="expyear">Expiration Year</label>
+                    <input type="text" class="form-control" id="card-expiry-year">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="cvc">CVC</label>
+                    <input type="text" class="form-control" id="card-cvc">
+                </div>
+            </div>-->
+            <button type="submit" class="btn btn-primary">Checkout</button>
+        </form>
+    </div>
+</div>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="javascripts/checkout.js"></script>
