@@ -1,4 +1,13 @@
 <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div id="success" class="alert alert-info" role="alert" {{#if noMessages}}hidden{{/if}}>
+                {{successMsg}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
     <h1>{{title}}</h1>
      {{#each products}}
     <div class="row">
