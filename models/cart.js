@@ -13,7 +13,20 @@ module.exports = function Cart(oldcart){
         this.totalQty++;
         this.totalPrice += storeItem.item.price;
     };
-
+    this.reduce = function(id){
+        this.items[id].qty--;
+        this.totalQty--;
+        this.items[id].price -= this.items[id].price;
+        this.totalPrice -= this.items[id].price;
+        if(this.items[id].qty<= 0){
+            delete this.items[id];
+        }
+    }
+    this.removeAll = function(id){
+        this.totalQty -= this.items[id].qty;
+        this.totalPrice -= this.items[id].price;
+        delete this.items[id];
+    }
     this.generateArray = function(){
         var arr = [];
         for(var id in this.items){
