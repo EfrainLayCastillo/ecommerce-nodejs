@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row pt-5">
+        <div class="col-md-6">
+            <figure class="figure">
+                <img src="{{item.imagePath}}" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                <figcaption class="figure-caption text-right">Just placeholder items for Alpha Webapp.</figcaption>
+            </figure>
+        </div>
+        <div class="col-md-6">
+        <h3>{{item.title}}</h3>
+        <p>
+            {{item.description}}
+        </p>
+        <div class="text-right">
+            <a href="/add-to-cart/{{item._id}}" class="btn btn-primary" role="button">Add to Cart</a>
+        </div>
+
+        </div>
+    </div>
+</div>
+

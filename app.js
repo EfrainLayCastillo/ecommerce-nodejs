@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 var index = require('./routes/index');
 var user = require('./routes/user');
+var admin = require('./routes/admin');
 //view engine
 var hbs = require('express-handlebars');
 //session user
@@ -38,6 +39,8 @@ app.engine('hbs', hbs(
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+app.set('view options', { layout: 'admin' });
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -60,7 +63,7 @@ app.use(session({
 app.use(flash());
 //passport init
 app.use(passport.initialize());
-app.use(passport.session()); 
+app.use(passport.session());
 
 app.use(sassMiddleware({
   src: path.join(__dirname, 'public'),
@@ -78,6 +81,8 @@ app.use(function(req, res, next){
 
 app.use('/user', user);
 app.use('/', index);
+app.use('/admin', admin);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

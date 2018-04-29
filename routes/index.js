@@ -31,6 +31,19 @@ router.get('/add-to-cart/:id', function(req, res, next){
   });
 });
 
+router.get('/detail/:id', function(req, res, next){
+  var productId = req.params.id;
+
+  Product.findById(productId, function (err, product) {
+    if (err) {
+      return res.redirect('/');
+    }
+    console.log(product);
+    res.render('shop/detail',{item: product});
+  });
+
+});
+
 router.get('/shopping-cart', function(req, res, next){
   if(!req.session.cart){
     return res.render('shop/shopping-cart', {products:null});

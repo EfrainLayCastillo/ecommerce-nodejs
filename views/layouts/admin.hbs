@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css' />
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 vertical">
+            {{> admin/menu}}
+        </div>
+        <div class="col-md-9">
+          {{{body}}}
+
+        </div>
+      </div>
+    </div>
+
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  </body>
+</html>

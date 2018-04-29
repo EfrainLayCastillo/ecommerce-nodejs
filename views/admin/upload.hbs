@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <form action="/admin/upload" method="post">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Titulo</label>
+          <input type="text" class="form-control" id="" placeholder="Title" name="title">
+        </div>
+        <div class="form-group">
+            <label for="validationCustomUsername">Price</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend">B./</span>
+              </div>
+              <input type="text" class="form-control" id="validationCustomUsername" placeholder="$00.00" aria-describedby="inputGroupPrepend" required name="price">
+              <div class="invalid-feedback">
+                Please choose a username.
+              </div>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Type of merch</label>
+          <select class="form-control" id="exampleFormControlSelect1" name="model">
+            <option>T-shirt</option>
+            <option>Hoodies</option>
+            <option>Jogger</option>
+            <option>Jacket</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Description</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="description"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlFile1">Image to upload</label>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile" name="imagePath">
+            <label class="custom-file-label" for="customFile">Choose Images</label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload Merch</button>
+      </form>
+    </div>
+  </div>
+</div>

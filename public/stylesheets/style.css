@@ -1,2 +1,12 @@
+.bck-black-sove {
+  background: black;
+  text-align: left !important;
+  padding: 0 25px; }
+
+.vertical {
+  background-color: #343a40 !important; }
+
+.block-force {
+  display: block !important; }
 
 /*# sourceMappingURL=style.css.map */
