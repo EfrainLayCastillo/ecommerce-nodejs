@@ -1,5 +1,6 @@
 var passport = require('passport');
 var User = require('../models/user');
+var Admin = require('../models/admin');
 var LocalStrategy  = require('passport-local').Strategy;
 
 passport.serializeUser(function(user, done){
@@ -11,6 +12,8 @@ passport.deserializeUser(function(id, done){
     });
 });
 
+
+// USER STRATEGY
 passport.use('local.signup', new LocalStrategy ({
     usernameField: 'email',
     passwordField: 'password',
@@ -74,7 +77,23 @@ passport.use('local.signin', new LocalStrategy({
         if(!user.validPassword(password)){
             return done(null, false, { message: 'Wrong password' });
         }
-        return done(null, user);
+        if(!err){
+            return done(null, user);
+        }
+        Admin.findOne({ 'email': email }, function (err, user) {
+            if (err) {
+                return done(err);
+            }
+            if (!user) {
+                return done(null, false, { message: 'Not found user' });
+            }
+            if (!user.validPassword(password)) {
+                return done(null, false, { message: 'Wrong password' });
+            }
+            return done(null, user);
+
+        });
 
     });
+
 }));

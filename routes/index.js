@@ -4,6 +4,11 @@ var router = express.Router();
 var Product = require('../models/product');
 var Cart = require('../models/cart');
 var Order = require('../models/order');
+
+router.all('/*', function (req, res, next) {
+    req.app.locals.layout = 'main'; // set your layout here
+    next(); // pass control to the next handler
+    });
 /* GET home page. */
 router.get('/', function(req, res, next) {
   var successMsg = req.flash('success')[0];

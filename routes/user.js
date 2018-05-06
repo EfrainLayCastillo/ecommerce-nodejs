@@ -74,12 +74,14 @@ router.post('/signin', passport.authenticate('local.signin', {
 module.exports = router;
 
 function isLoggedIn(req, res, next){
+  req.app.locals.layout = 'main';
   if(req.isAuthenticated()){
     return next();
   }
   res.redirect('/');
 }
 function notLoggedIn(req, res, next) {
+  req.app.locals.layout = 'main';
   if (!req.isAuthenticated()) {
     return next();
   }

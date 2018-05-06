@@ -75,13 +75,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 /* global variable to use in routes or from the views*/
 app.use(function(req, res, next){
   res.locals.login = req.isAuthenticated();
+  console.log(req.isAuthenticated());
   res.locals.session = req.session;
   next();
 });
 
 app.use('/user', user);
-app.use('/', index);
 app.use('/admin', admin);
+app.use('/', index);
 
 
 // catch 404 and forward to error handler
