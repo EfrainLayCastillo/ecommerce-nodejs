@@ -75,6 +75,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 /* global variable to use in routes or from the views*/
 app.use(function(req, res, next){
   res.locals.login = req.isAuthenticated();
+  console.log(res.session);
   console.log(req.isAuthenticated());
   res.locals.session = req.session;
   next();

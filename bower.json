@@ -8,6 +8,10 @@
   "license": "MIT",
   "homepage": "",
   "private": true,
+  "dependencies": {
+    "bootstrap": "4.0",
+    "jquery": "*"
+  },
   "ignore": [
     "**/.*",
     "node_modules",

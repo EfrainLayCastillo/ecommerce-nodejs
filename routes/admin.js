@@ -62,7 +62,7 @@ router.get('/signup', function (req, res, next) {
   res.render('admin/signup', { csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0 });
 });
 
-router.post('/signup', passport.authenticate('adminSignup', {
+router.post('/signup', passport.authenticate('local.adminSignup', {
   failureRedirect: '/admin/signup',
   failureFlash: true
 }), function (req, res, next) {
@@ -80,14 +80,14 @@ router.get('/signin', function (req, res, next) {
   res.render('admin/signin', { csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0 });
 });
 
-router.post('/signin', passport.authenticate('local.signin', {
+router.post('/signin', passport.authenticate('local.adminSignin', {
   failureRedirect: '/admin/signin',
   failureFlash: true
 }), function (req, res, next) {
   if (req.session.oldUrl) {
     var Url = req.session.oldUrl;
     req.session.oldUrl = null;
-    res.redirect(Url);
+    res.redirect('/admin');
   } else {
     res.redirect('/admin');
   }
